@@ -1,17 +1,16 @@
 # SigmaOS-apparmor
 
-Missing OS component for SigmaOS.
+SigmaOS component for essential infrastructure.
 
-## Inspiration
+## Features
+- Modular architecture
+- Asynchronous I/O
+- Configuration management
 
-This component is inspired by major Linux distributions to provide:
-- Essential OS functionality
-- System management
-- User tools
-- Developer tools
+## Usage
+```bash
+cargo run --release
+```
 
-## Status
-
-- Architecture: Designed
-- Implementation: Basic
-- Testing: Basic
+## License
+MIT
