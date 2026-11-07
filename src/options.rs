@@ -1,30 +1,9 @@
 //! Options model.
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum Mode {
-    Default,
-    Status,
-    ListProfiles,
-    Load,
-    Unload,
-    Enforce,
-    Complain,
-    Disable,
-}
+#[derive(Debug, Clone, PartialEq)]
+pub enum Mode { Default, Profile(String, String), Rule(String, String), Mode(String, String), List }
 
 #[derive(Debug, Clone)]
-pub struct AppArmorOptions {
-    pub mode: Mode,
-    pub profile: Option<String>,
-}
-
-impl Default for AppArmorOptions {
-    fn default() -> Self { Self { mode: Mode::Default, profile: None } }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    #[test]
-    fn opts() { assert_eq!(AppArmorOptions::default().mode, Mode::Default); }
-}
+pub struct Options { pub mode: Mode }
+impl Default for Options { fn default() -> Self { Self { mode: Mode::Default } } }
+#[cfg(test)] mod tests { use super::*; #[test] fn o() { assert!(matches!(Options::default().mode, Mode::Default)); } }
